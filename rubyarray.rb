@@ -13,9 +13,9 @@ class RubyArray
     @countries.map(&:downcase).sort_by { |c| c }.reverse
   end
 
-  def remove_country(num)
+  def remove_country(index)
     @countries = sorting_countries
-    @countries.slice!(num)
+    @countries.slice!(index)
   end
 
   def middle_country
