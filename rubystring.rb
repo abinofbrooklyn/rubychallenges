@@ -1,6 +1,4 @@
 class RubyString
-  attr_accessor :sentence
-
   def initialize(sentence)
     @sentence = sentence
   end
@@ -52,24 +50,10 @@ class RubyString
     sentence_array.map! { |w| w == sentence_array[index] ? word : w }.join(" ")
   end
 
-  def find_the_word(index)
-    sentence_array = turn_to_array
-    sentence_array.find { |i| i == sentence_array[index] }
-  end
-
-  def first_change(index, index2)
-    sentence_array = turn_to_array
-    first_switch = sentence_array.delete_at(index)
-    sentence_array.insert(index2, first_switch)
-  end
-
-  def second_change(index, index2)
-    sentence_array = turn_to_array
-    second_switch = sentence_array.delete_at(index2)
-    sentence_array.insert(index, second_switch)
-  end
-
   def switch_words(index, index2)
-    puts first_change + second_change
+    sentence_array = turn_to_array
+    first_word = sentence_array.find { |i| i == sentence_array[index] }
+    second_word = sentence_array.find { |i| i == sentence_array[index2] }
+    sentence_array.map { |w| w == sentence_array[index] ? second_word : w && w == sentence_array[index2] ? first_word : w }.join(" ")
   end
 end
