@@ -39,10 +39,10 @@ describe RubyString do
   end
 
   it "replaces 3rd word" do
-    expect(@my_ruby.replace_word(2, "was")).to eq ("Mickey Mouse was not there or is he?")
+    expect(@my_ruby.replace_word(3, "was")).to eq ("Mickey Mouse was not there or is he?")
   end
 
   it "switches postions of the 2nd and 5th word in the string" do
-    expect(@my_ruby.switch_words(1, 4)).to eq ("Mickey there is not Mouse or is he?")
+    expect(@my_ruby.switch_words(2, 5)).to eq ("Mickey there is not Mouse or is he?")
   end
 end

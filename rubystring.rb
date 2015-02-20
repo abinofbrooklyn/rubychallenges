@@ -47,13 +47,19 @@ class RubyString
 
   def replace_word(index, word)
     sentence_array = turn_to_array
-    sentence_array.map! { |w| w == sentence_array[index] ? word : w }.join(" ")
+    sentence_array.map! { |w| w == sentence_array[index-1] ? word : w }.join(" ")
   end
+
+  #def switch_words(index, index2)
+   # sentence_array = turn_to_array
+   # first_word = sentence_array.find { |i| i == sentence_array[index] }
+   # second_word = sentence_array.find { |i| i == sentence_array[index2] }
+   # sentence_array.map { |w| w == sentence_array[index] ? second_word : w && w == sentence_array[index2] ? first_word : w }.join(" ")
+  #end
 
   def switch_words(index, index2)
     sentence_array = turn_to_array
-    first_word = sentence_array.find { |i| i == sentence_array[index] }
-    second_word = sentence_array.find { |i| i == sentence_array[index2] }
-    sentence_array.map { |w| w == sentence_array[index] ? second_word : w && w == sentence_array[index2] ? first_word : w }.join(" ")
+    sentence_array[index-1], sentence_array[index2-1] = sentence_array[index2-1], sentence_array[index-1]
+    sentence_array.join(" ")
   end
 end
